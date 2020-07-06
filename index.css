@@ -1,36 +1,45 @@
 /*       Fonts 
+
 Pacifico Light
 font-family: pacifico, sans-serif;
 font-weight: 300;
 font-style: normal;
+
 Pacifico Regular
 font-family: pacifico, sans-serif;
 font-weight: 400;
 font-style: normal;
+
 Pacifico Bold
 font-family: pacifico, sans-serif;
 font-weight: 700;
 font-style: normal;
+
 Ganache Regular
 font-family: ganache, sans-serif;
 font-weight: 400;
 font-style: normal;
+
 Tondo Regular
 font-family: tondo, sans-serif;
 font-weight: 400;
 font-style: normal;
+
 Tondo Bold
 font-family: tondo, sans-serif;
 font-weight: 700;
 font-style: normal;
+
 Tondo Light
 font-family: tondo, sans-serif;
 font-weight: 300;
 font-style: normal;
+
 Tondo Signage
 font-family: tondo-signage, sans-serif;
 font-weight: 400;
 font-style: normal;
+
 */
 
 
@@ -49,9 +58,8 @@ body {
 }
 
 #wrapper {
-    width: 100vw;
+    width: 100%;
     height: auto;
-    margin: 1vw;
 }
 
 #TuneSky {
@@ -95,6 +103,46 @@ body {
     font-weight: 300;
     float: left;
 }
+.songInPlayer{
+    clear: both;
+    width: 96%;
+    height: 5vw;
+    background-color: #fff;
+    border-radius: 4vw;
+    margin-left: 2%; 
+    padding: 0.95vw 2vw 0.95vw 2vw;
+}
+.artistInPlayer{
+    color: #4CC0EF;
+    font-size: 2.5vw;
+    font-family: tondo, sans-serif;
+    font-weight: 400;
+    float: left;
+}
+.albumInPlayer{
+    color: #4CC0EF;
+    font-size: 2.5vw;
+    font-family: tondo, sans-serif;
+    font-weight: 300;
+    float: left;
+    margin-left: 1vw;
+}
+.songPlaying{
+    color: #4CC0EF;
+    font-size: 2.5vw;
+    font-family: tondo, sans-serif;
+    font-weight: 300;
+    float: left;
+    margin-left: 1vw;
+}
+.timeInPlayer{
+    color: #4CC0EF;
+    font-size: 2.5vw;
+    font-family: tondo, sans-serif;
+    font-weight: 300;
+    float: left;
+    margin-left: 1vw;
+}
 
 .jBbuttons {
     clear: both;
@@ -118,9 +166,20 @@ body {
 }
 .songInfo {
     width: 30vw;
-    height: 48vw;
+    height: 45vw;
     border-radius: 2vw;
     background-color: #313131;
+    float: left;
+    padding: 2vw;
+    margin-left: 1.482vw;
+    margin-right: 1.482vw;
+    margin-bottom: 2vw;
+}
+.songInfoActive {
+    width: 30vw;
+    height: 45vw;
+    border-radius: 2vw;
+    background-color: #fff;
     float: left;
     padding: 2vw;
     margin-left: 1.482vw;
