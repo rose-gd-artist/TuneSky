@@ -45,6 +45,10 @@ $(document).ready(function(){
         songBox.style.display = "inline";
         document.body.appendChild(songBox);
 
+        if(songBox.activeElement === searchItem.data[i]){
+            songBox.removeClass("songInfo").addClass("artistInPlayer");
+        }
+
         let songAlbum = document.createElement("div");
         songAlbum.classList.add("featuredAlbum");
         songAlbum.style.backgroundImage = "url(" + featuredCover + ")";
