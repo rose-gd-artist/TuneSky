@@ -78,7 +78,7 @@ body {
     height:4vw;
     border-radius: 5vw;
     background-color: #fff;
-    color: #000;
+    color: #313131;
     font-family: tondo, sans-serif;
     font-weight: 300;
     font-size: 2vw;
@@ -91,9 +91,9 @@ body {
     float: left;
 }
 #searchButton {
-    width:9%;
+    width:10%;
     height: 4vw;
-    background-color: #000;
+    background-color: #313131;
     color: #fff;
     text-align: center;
     font-size: 2vw;
@@ -126,7 +126,7 @@ body {
     font-family: tondo, sans-serif;
     font-weight: 300;
     float: left;
-    margin-left: 1vw;
+    margin-left: 20vw;
 }
 .songPlaying{
     color: #4CC0EF;
@@ -134,7 +134,7 @@ body {
     font-family: tondo, sans-serif;
     font-weight: 300;
     float: left;
-    margin-left: 1vw;
+    margin-left: 20vw;
 }
 .timeInPlayer{
     color: #4CC0EF;
@@ -168,10 +168,10 @@ body {
 .songInfo {
     width: 30vw;
     height: 45vw;
-    border-radius: 2vw;
+    border-radius: 4vw;
     background-color: #313131;
     float: left;
-    padding: 2vw;
+    padding: 5vw;
     margin-left: 1.482vw;
     margin-right: 1.482vw;
     margin-bottom: 2vw;
@@ -179,20 +179,21 @@ body {
 .songInfoActive {
     width: 30vw;
     height: 45vw;
-    border-radius: 2vw;
+    border-radius: 4vw;
     background-color: #fff;
     float: left;
-    padding: 2vw;
+    padding: 5vw;
     margin-left: 1.482vw;
     margin-right: 1.482vw;
     margin-bottom: 2vw;
 }
 
 .featuredAlbum {
-    width: 26vw;
-    height: 26vw;
+    width: 20vw;
+    height: 20vw;
     background-color: #4CC0EF;
     padding: 2vw;
+    border-radius: 1vw;
     float: left;
     display: inline;
     margin-bottom: 1vw;
@@ -221,9 +222,9 @@ body {
 .featuredTrack {
     clear: both;
     color: #000;
-    width: 26vw;
+    width: 20vw;
     height: auto;
-    border-radius: 2vw;
+    border-radius: 1vw;
     background-color: #4CC0EF;
     font-size: 2vw;
     font-family: tondo, sans-serif;
@@ -231,3 +232,16 @@ body {
     text-align: center;
     display: block;
 }
+
+/* #footer {
+    width: 100%;
+    height: 10vw;
+    background-color: #313131;
+    color: #4CC0EF;
+    font-size: 1vw;
+    font-family: tondo, sans-serif;
+    font-weight: 300;
+    text-align: center;
+    bottom: 0;
+    position: sticky;
+} */

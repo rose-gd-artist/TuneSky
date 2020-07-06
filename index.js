@@ -44,7 +44,7 @@ $(document).ready(function(){
         songBox.classList.add("songInfo");
         songBox.style.display = "inline";
         document.body.appendChild(songBox);
-
+        
         if(songBox.activeElement === searchItem.data[i]){
             songBox.removeClass("songInfo").addClass("artistInPlayer");
         }
