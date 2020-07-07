@@ -50,7 +50,7 @@ body {
     margin: 0px auto;
     padding: 0px;
     background-color:#4CC0EF;
-    overflow:auto;
+    overflow: auto;
 
 }
 * {
@@ -104,7 +104,7 @@ body {
     font-weight: 300;
     float: left;
 }
-.songInPlayer{
+#songInPlayer{
     clear: both;
     width: 96%;
     height: 5vw;
@@ -113,14 +113,14 @@ body {
     margin-left: 2%; 
     padding: 0.95vw 2vw 0.95vw 2vw;
 }
-.artistInPlayer{
+#artistInPlayer{
     color: #4CC0EF;
     font-size: 2.5vw;
     font-family: tondo, sans-serif;
     font-weight: 400;
     float: left;
 }
-.albumInPlayer{
+#albumInPlayer{
     color: #4CC0EF;
     font-size: 2.5vw;
     font-family: tondo, sans-serif;
@@ -128,7 +128,7 @@ body {
     float: left;
     margin-left: 20vw;
 }
-.songPlaying{
+#songPlaying{
     color: #4CC0EF;
     font-size: 2.5vw;
     font-family: tondo, sans-serif;
@@ -136,7 +136,7 @@ body {
     float: left;
     margin-left: 20vw;
 }
-.timeInPlayer{
+#timeInPlayer{
     color: #4CC0EF;
     font-size: 2.5vw;
     font-family: tondo, sans-serif;

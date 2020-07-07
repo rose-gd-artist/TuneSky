@@ -44,10 +44,6 @@ $(document).ready(function(){
         songBox.classList.add("songInfo");
         songBox.style.display = "inline";
         document.body.appendChild(songBox);
-        
-        if(songBox.activeElement === searchItem.data[i]){
-            songBox.removeClass("songInfo").addClass("artistInPlayer");
-        }
 
         let songAlbum = document.createElement("div");
         songAlbum.classList.add("featuredAlbum");
@@ -70,26 +66,26 @@ $(document).ready(function(){
         songName.innerHTML = searchItem.data[i].title_short;
         songBox.appendChild(songName);
 
-        for(let j = 0; j < searchItem.data.length-1; j++){
-
-            let songInPlayer = document.getElementsByClassName("songInPlayer");
-            let artistInPlayer = document.getElementsByClassName("artistInPlayer");
-            let albumInPlayer = document.getElementsByClassName("albumInPlayer");
-            let songPlaying = document.getElementsByClassName("songPlaying");
-            let timeInPlayer = document.getElementsByClassName("timeInPlayer");
-    
-            artistInPlayer.innerHTML = searchItem.data[j].artist.name;
-            albumInPlayer.innerHTML = searchItem.data[j].album.title;
-            songPlaying.innerHTML = searchItem.data[j].title_short;
-
-        } // this is not showing up in the songInPlayer headline
-
         } // end of song boxes created
 
         let myAudio = new Audio();
         let i = 0;
         myAudio.src = searchItem.data[i].preview; 
         i++;
+
+        // let songInPlayer = document.getElementById("songInPlayer");
+        // let artistInPlayer = document.getElementById("artistInPlayer");
+        // let albumInPlayer = document.getElementById("albumInPlayer");
+        // let songPlaying = document.getElementById("songPlaying");
+       // let timeInPlayer = document.getElementById("timeInPlayer"); // code didn't work
+
+        // $("#artistInPlayer").html(searchItem.data[i].artist.name);
+        // $("#albumInPlayer").html(searchItem.data[i].album.title);
+        // $("#songPlaying").html(searchItem.data[i].title_short); // code didn't work
+
+        // artistInPlayer.innerHTML = searchItem.data[i].artist.name;
+        // albumInPlayer.innerHTML = searchItem.data[i].album.title;
+        // songPlaying.innerHTML = searchItem.data[i].title_short; // code didn't work
 
         let prevButton = document.getElementById("previous");
         let pauseButton = document.getElementById("pause");
@@ -104,19 +100,29 @@ $(document).ready(function(){
                 i = searchItem.data.length-1;
             }
             console.log(searchItem.data[i]);
-            myAudio.src = searchItem.data[i].preview; 
+            myAudio.src = searchItem.data[i].preview;
             myAudio.play();
         });
 
         pauseButton.addEventListener("click", function(){
             console.log(searchItem.data[i]);
             myAudio.src = searchItem.data[i].preview; 
+
             myAudio.pause();
         });
     
         playButton.addEventListener("click", function(){
             console.log(searchItem.data[i]);
             myAudio.src = searchItem.data[i].preview; 
+            //let songBox = document.getElementsByClassName("songInfo")[0];
+            // $(".songInfo : ").css({
+            //     let songBox = document.getElementsByClassName("songInfo")[0];
+            //     $(".songBox").removeClass("songInfo").addClass("songInfoActive"); // code didn't work
+            // })
+
+            // $("#artistInPlayer").html(searchItem.data[i].artist.name);
+            // $("#albumInPlayer").html(searchItem.data[i].album.title);
+            // $("#songPlaying").html(searchItem.data[i].title_short); // code didn't work
             myAudio.play();
         });
 
@@ -133,7 +139,6 @@ $(document).ready(function(){
 
         myAudio.addEventListener("ended", songEnded)
             
-
         function songEnded(){
             i = i + 1;
             if(i > searchItem.data.length-1){
@@ -143,6 +148,16 @@ $(document).ready(function(){
             myAudio.src = searchItem.data[i].preview;
             myAudio.play();
         }
+
+        // let songInPlayer = document.getElementById("songInPlayer");
+        // let artistInPlayer = document.getElementById("artistInPlayer");
+        // let albumInPlayer = document.getElementById("albumInPlayer");
+        // let songPlaying = document.getElementById("songPlaying");
+        // let timeInPlayer = document.getElementById("timeInPlayer"); // code didn't work
+
+        // artistInPlayer.innerHTML = searchItem.data[i].artist.name;
+        // albumInPlayer.innerHTML = searchItem.data[i].album.title;
+        // songPlaying.innerHTML = searchItem.data[i].title_short; // code didn't work
         
     } // end of searchAnswers fx
 
