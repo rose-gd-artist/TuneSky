@@ -38,9 +38,10 @@ $(document).ready(function(){
         let featuredArtist = document.getElementsByClassName("featuredArtist");
         let featuredAlbumName = document.getElementsByClassName("featuredAlbumName");
         let featuredTrack = document.getElementsByClassName("featuredTrack");
-        let songInfo = document.getElementsByClassName("songInfo");
+        let songBox = document.getElementsByClassName("songBox");
 
-        let songBox = document.createElement("div");
+        songBox = document.createElement("div");
+        songBox.classList.add("songBox");
         songBox.classList.add("songInfo");
         songBox.style.display = "inline";
         document.body.appendChild(songBox);
@@ -71,7 +72,7 @@ $(document).ready(function(){
         let myAudio = new Audio();
         let i = 0;
         myAudio.src = searchItem.data[i].preview; 
-        i++;
+        i++;      
 
         let prevButton = document.getElementById("previous");
         let pauseButton = document.getElementById("pause");
@@ -85,67 +86,112 @@ $(document).ready(function(){
             if(i < 0){
                 i = searchItem.data.length-1;
             }
-            console.log(searchItem.data[i]);
+            
             myAudio.src = searchItem.data[i].preview;
             myAudio.play();
-            artistInPlayer.innerHTML = "Artist:  " + searchItem.data[i].artist.name;
-            albumInPlayer.innerHTML = "Album:  " + searchItem.data[i].album.title;
-            songPlaying.innerHTML = "Song Title:  " + searchItem.data[i].title_short; 
+            console.log("current song is " + searchItem.data[i].title_short);
+
         });
 
         pauseButton.addEventListener("click", function(){
-            console.log(searchItem.data[i]);
-            myAudio.src = searchItem.data[i].preview; 
 
+            myAudio.src = searchItem.data[i].preview; 
             myAudio.pause();
-            artistInPlayer.innerHTML = "Artist:  " + searchItem.data[i].artist.name;
-            albumInPlayer.innerHTML = "Album:  " + searchItem.data[i].album.title;
-            songPlaying.innerHTML = "Song Title:  " + searchItem.data[i].title_short; 
+            console.log("current song is " + searchItem.data[i].title_short);
+
         });
     
         playButton.addEventListener("click", function(){
-            console.log(searchItem.data[i]);
+
+            i = 0;
             myAudio.src = searchItem.data[i].preview; 
 
             myAudio.play();
-            artistInPlayer.innerHTML = "Artist:  " + searchItem.data[i].artist.name;
-            albumInPlayer.innerHTML = "Album:  " + searchItem.data[i].album.title;
-            songPlaying.innerHTML = "Song Title:  " + searchItem.data[i].title_short; 
 
-            // let songBox = document.getElementsByClassName("songInfo")[0];
-
-            // this.songBox.classList.remove("songInfo");
-            // this.songBox.classList.add("songInfoActive");
+            console.log(searchItem.data[i]);
+            console.log("current song is " + searchItem.data[i].title_short);
 
         });
 
         nextButton.addEventListener("click", function(){
+
+
             i = i + 1;
             if(i > searchItem.data.length-1){
                 i = 0;
-            }
-            console.log(searchItem.data[i]);
+            } 
+
             myAudio.src = searchItem.data[i].preview; 
             myAudio.play();
-            artistInPlayer.innerHTML = "Artist:  " + searchItem.data[i].artist.name;
-            albumInPlayer.innerHTML = "Album:  " + searchItem.data[i].album.title;
-            songPlaying.innerHTML = "Song Title:  " + searchItem.data[i].title_short; 
+            console.log("current song is " + searchItem.data[i].title_short);
 
         });
+
+        myAudio.addEventListener("playing", whiteBoxSwitch);
+
+        function whiteBoxSwitch(){
+
+            artistInPlayer.innerHTML = searchItem.data[i].artist.name;
+            albumInPlayer.innerHTML = searchItem.data[i].album.title;
+            songPlaying.innerHTML = searchItem.data[i].title_short; 
+
+///////////////////////////////////////////////////////////////////////////////////////////
+            ///////////// these code lines do not work for //////////
+
+            let songBox = document.getElementsByClassName("songBox");
+            let songInfo = document.getElementsByClassName("songInfo");
+            let songInfoActive = document.getElementsByClassName("songInfoActive");
+
+                songBox[i].classList.remove("songInfo"); 
+                songBox[i].classList.add("songInfoActive");
+
+                songBox[i + 1].classList.remove("songInfoActive");
+                songBox[i + 1].classList.add("songInfo");
+
+                songBox[i - 1].classList.remove("songInfo");
+                songBox[i - 1].classList.add("songInfoActive");
+
+            ///////////// these code lines do not work for //////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        }  /// only works going from [0] thru to [24], but if I try to go 
+           /// backward from node[0] to node[24] --- node[0] stays white 
+           /// and does not change its classList while that node song is
+           /// not playing -- tried everything but not sure how to fix it
+
+
+
+
 
         myAudio.addEventListener("ended", songEnded)
             
         function songEnded(){
+
+///////////////////////////////////////////////////////////////////////////////////////////
+            ///////////// these code lines do not work for //////////
+
+            let songBox = document.getElementsByClassName("songBox");
+            songBox[i].classList.remove("songInfoActive");
+            songBox[i].classList.add("songInfo");
+            songBox[i + 1].classList.remove("songInfo");
+            songBox[i + 1].classList.add("songInfoActive");
+
+            ///////////// these code lines do not work for //////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
             i = i + 1;
             if(i > searchItem.data.length-1){
                 i = 0;
             }
-            console.log(searchItem.data[i]);
+            
             myAudio.src = searchItem.data[i].preview;
             myAudio.play();
-            artistInPlayer.innerHTML = "Artist:  " + searchItem.data[i].artist.name;
-            albumInPlayer.innerHTML = "Album:  " + searchItem.data[i].album.title;
-            songPlaying.innerHTML = "Song Title:  " + searchItem.data[i].title_short; 
+
+            console.log("current song is " + searchItem.data[i].title_short);
         }
         
     } // end of searchAnswers fx

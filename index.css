@@ -107,11 +107,11 @@ body {
 #songInPlayer{
     clear: both;
     overflow: auto;
-    width: 96%;
+    width: 90%;
     height: auto;
     background-color: #fff;
     border-radius: 6vw;
-    margin-left: 2%; 
+    margin-left: 5%; 
     padding: 0.95vw 6vw 0.95vw 6vw;
 }
 #artistInPlayer{
@@ -119,6 +119,7 @@ body {
     font-size: 2.5vw;
     font-family: tondo, sans-serif;
     font-weight: 400;
+    text-align: center;
 
 }
 #albumInPlayer{
@@ -126,19 +127,16 @@ body {
     font-size: 2.5vw;
     font-family: tondo, sans-serif;
     font-weight: 300;
+    text-align: center;
 }
 #songPlaying{
     color: #4CC0EF;
     font-size: 2.5vw;
     font-family: tondo, sans-serif;
     font-weight: 300;
+    text-align: center;
 }
-#timeInPlayer{
-    color: #4CC0EF;
-    font-size: 2.5vw;
-    font-family: tondo, sans-serif;
-    font-weight: 300;
-}
+
 
 .jBbuttons {
     clear: both;
@@ -158,6 +156,17 @@ body {
     float: left;
     margin: 1vw;
 }
+.songBox {
+    width: 30vw;
+    height: 45vw;
+    border-radius: 4vw;
+    float: left;
+    padding: 5vw;
+    margin-left: 1.482vw;
+    margin-right: 1.482vw;
+    margin-bottom: 2vw;
+}
+
 .songInfo {
     width: 30vw;
     height: 45vw;
@@ -169,6 +178,7 @@ body {
     margin-right: 1.482vw;
     margin-bottom: 2vw;
 }
+
 .songInfoActive {
     width: 30vw;
     height: 45vw;
