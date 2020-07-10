@@ -4,6 +4,7 @@ $(document).ready(function(){
 
     let searchBox = document.getElementById("searchBox");
     let searchButton = document.getElementById("searchButton");
+    let songBox = document.getElementsByClassName("songBox");
 
     searchButton.addEventListener("click", findResult);
 
@@ -16,7 +17,7 @@ $(document).ready(function(){
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-                "x-rapidapi-key": apiKeyValue
+                "x-rapidapi-key": "7127fb250cmsh0aa25dfcfb27c2bp11c565jsn1fd443c2d24e"
             } // end of headers
         } // end of settings
 
@@ -30,7 +31,7 @@ $(document).ready(function(){
 
     function searchAnswers(searchItem){
 
-        for(let i = 0; i < searchItem.data.length-1; i++){
+    for(let i = 0; i < searchItem.data.length-1; i++){
   
         let arrayResults = searchItem.data[i];
         let featuredCover = searchItem.data[i].album.cover_big;
@@ -67,12 +68,18 @@ $(document).ready(function(){
         songName.innerHTML = searchItem.data[i].title_short;
         songBox.appendChild(songName);
 
-        } // end of song boxes created
+    } // end of song boxes created
 
         let myAudio = new Audio();
         let i = 0;
+        // ok, of what I see you did set one number as 0; that is what I meant
+        // when I was saying that you should have a currentSong variable; you should
+        // change the name of i to something else; you can easily mix up which i is which
+        
         myAudio.src = searchItem.data[i].preview; 
-        i++;      
+        // why do you increment i here??
+        // i++; 
+        
 
         let prevButton = document.getElementById("previous");
         let pauseButton = document.getElementById("pause");
@@ -80,9 +87,7 @@ $(document).ready(function(){
         let nextButton = document.getElementById("next");
 
         prevButton.addEventListener("click", function(){
-
-            i = i - 1;
-                
+            i = i - 1;            
             if(i < 0){
                 i = searchItem.data.length-1;
             }
@@ -102,8 +107,7 @@ $(document).ready(function(){
         });
     
         playButton.addEventListener("click", function(){
-
-            i = 0;
+            // i = 0;
             myAudio.src = searchItem.data[i].preview; 
 
             myAudio.play();
@@ -114,8 +118,6 @@ $(document).ready(function(){
         });
 
         nextButton.addEventListener("click", function(){
-
-
             i = i + 1;
             if(i > searchItem.data.length-1){
                 i = 0;
@@ -127,29 +129,27 @@ $(document).ready(function(){
 
         });
 
-        myAudio.addEventListener("playing", whiteBoxSwitch);
+        myAudio.addEventListener("playing", function() {
+            whiteBoxSwitch (i)
+        });
 
-        function whiteBoxSwitch(){
-
+        function whiteBoxSwitch(i){
             artistInPlayer.innerHTML = searchItem.data[i].artist.name;
             albumInPlayer.innerHTML = searchItem.data[i].album.title;
             songPlaying.innerHTML = searchItem.data[i].title_short; 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
             ///////////// these code lines do not work for //////////
-
-            let songBox = document.getElementsByClassName("songBox");
-            let songInfo = document.getElementsByClassName("songInfo");
-            let songInfoActive = document.getElementsByClassName("songInfoActive");
-
-                songBox[i].classList.remove("songInfo"); 
-                songBox[i].classList.add("songInfoActive");
-
-                songBox[i + 1].classList.remove("songInfoActive");
-                songBox[i + 1].classList.add("songInfo");
-
-                songBox[i - 1].classList.remove("songInfo");
-                songBox[i - 1].classList.add("songInfoActive");
+            // you loop through the elements each time when you change song;
+            // you add white to the one that corresponds to i; remove each time all the rest
+            for(let j = 0; j < songBox.length; j++) {
+            if( i === j) {
+                songBox[j].classList.add("songInfoActive");
+            } else {
+                songBox[j].classList.remove("songInfoActive")
+            }
+        }
+                 
 
             ///////////// these code lines do not work for //////////
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -161,7 +161,9 @@ $(document).ready(function(){
            /// and does not change its classList while that node song is
            /// not playing -- tried everything but not sure how to fix it
 
-
+    // function removeWhite(i) {
+        
+    // }
 
 
 
@@ -172,11 +174,11 @@ $(document).ready(function(){
 ///////////////////////////////////////////////////////////////////////////////////////////
             ///////////// these code lines do not work for //////////
 
-            let songBox = document.getElementsByClassName("songBox");
-            songBox[i].classList.remove("songInfoActive");
-            songBox[i].classList.add("songInfo");
-            songBox[i + 1].classList.remove("songInfo");
-            songBox[i + 1].classList.add("songInfoActive");
+            // let songBox = document.getElementsByClassName("songBox");
+            // songBox[i].classList.remove("songInfoActive");
+            // songBox[i].classList.add("songInfo");
+            // songBox[i + 1].classList.remove("songInfo");
+            // songBox[i + 1].classList.add("songInfoActive");
 
             ///////////// these code lines do not work for //////////
 ///////////////////////////////////////////////////////////////////////////////////////////
